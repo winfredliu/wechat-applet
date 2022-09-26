@@ -1,0 +1,25 @@
+<view class="cu-card article" wx:for="{{homestay}}" wx:key="index">
+  <view class="cu-item shadow" data-id="{{item._id}}">
+    <view class="title">
+      <view class="text-cut">{{item.name}}
+        <view class="cu-tag bg-green light sm round" wx:if="{{item.lever}}">{{item.lever}}</view>
+      </view>
+    </view>
+    <view class="content">
+      <image src="{{item.imgUrl}}" mode="aspectFill" bindtap="showThis"></image>
+      <view class="desc">
+        <view class="text-content">{{item.des}}</view>
+        <view>
+          <view class="cu-tag bg-green light sm round" wx:if="{{item.lever}}">{{item.lever}}</view>
+          <view class="cu-tag bg-red light sm round" wx:if="{{item.tag}}">{{item.tag}}</view>
+        </view>
+      </view>
+    </view>
+    <view style="width: 100%;padding: 10px 12px;">
+      <tui-button height="88rpx" bindclick="showThis">预览</tui-button>
+    </view>
+    <view style="width: 100%;padding: 10px 12px;">
+      <tui-button height="88rpx" bindclick="addtocar">订购</tui-button>
+    </view>
+  </view>
+</view>

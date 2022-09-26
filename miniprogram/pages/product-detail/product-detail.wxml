@@ -1,0 +1,132 @@
+<view class="container">
+
+  <view class="tui-header-box" style="height:{{height}}px;background:rgba(255,255,255,{{opcity}})">
+    <view class="tui-header" style="padding-top:{{top}}px; opacity:{{opcity}}">
+      商品详情
+    </view>
+    <view class="tui-header-icon" style="margin-top:{{top}}px">
+      <tui-icon name="arrowleft" color="{{opcity>=1?'#000':'#fff'}}" bindtap="back" tui-icon-class="tui-icon-back"
+        class="tui-icon" style="background:rgba(0, 0, 0, {{iconOpcity}});"></tui-icon>
+    </view>
+  </view>
+
+  <!--轮播图-->
+  <view class="tui-banner-swiper">
+    <swiper autoplay="true" interval="5000" duration="150" circular="{{true}}" style="height:{{scrollH}}px"
+      bindchange="bannerChange">
+      <block wx:for="{{productInfo.product_img_list}}" wx:key="{{index}}">
+        <swiper-item data-index="{{index}}" catchtap="previewImage">
+          <image src="{{item}}" class="tui-slide-image" style="height:{{scrollH}}px" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <tui-tag type="translucent" tui-tag-class="tui-tag-banner" shape="circleLeft" size="small">
+      {{bannerIndex+1}}/{{productInfo.product_img_list.length}}</tui-tag>
+  </view>
+  <!--轮播图-->
+
+  <!--商品信息-->
+  <view class="tui-pro-detail">
+    <view class="tui-product-title tui-border-radius">
+      <view class="tui-pro-pricebox tui-padding">
+        <view class="tui-pro-price">
+          <text class="tui-original-price tui-gray">价格:</text>
+          <view>￥<text class="tui-price">{{productInfo.product_price}}</text></view>
+          <block wx:if="{{productInfo.product_new}}">
+            <tui-tag size="small" plain="{{true}}" type="high-green" shape="circle"
+              tui-tag-class="tui-scale tui-tag-pro">
+              新品
+            </tui-tag>
+          </block>
+        </view>
+
+        <view class="tui-collection tui-size" bindtap="changeCollecting">
+          <tui-icon name="{{productInfo.product_collection?'like-fill':'like'}}"
+            color="{{productInfo.product_collection?'#ff201f':'#333'}}" size="20" tui-icon-class="tui-icon-collection">
+          </tui-icon>
+          <view class="tui-scale {{productInfo.product_collection?'tui-red':''}}">收藏</view>
+        </view>
+      </view>
+
+      <view class="tui-pro-titbox">
+        <view class="tui-pro-title">{{productInfo.product_name}}</view>
+        <button open-type="share" class="tui-share-btn tui-share-position">
+          <tui-tag type="gray" tui-tag-class="tui-tag-share tui-size" shape="circleLeft" size="small" style="width: 35px !important;">
+            <tui-icon name="partake" color="#999" size="15"></tui-icon>
+            <text class="tui-share-text tui-gray">分享</text>
+          </tui-tag>
+        </button>
+      </view>
+
+      <view class="tui-padding">
+        <view class="tui-sale-info tui-size tui-gray">
+          <view>月销{{productInfo.product_sales}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--商品信息-->
+
+  <!--底部操作栏-->
+  <view class="tui-operation">
+    <view class="tui-operation-left tui-col-4">
+      <button class="tui-operation-item kf-btn" hover-class="tui-opacity" hover-stay-time="150" open-type="contact">
+        <tui-icon name="kefu" size="22" color='#333'></tui-icon>
+        <view class="tui-operation-text tui-scale-small">客服</view>
+      </button>
+      <view class="tui-operation-item" hover-class="tui-opacity" hover-stay-time="150" bindtap="toCartHandle">
+        <tui-icon name="cart" size="22" color='#333'></tui-icon>
+        <view class="tui-operation-text tui-scale-small">购物车</view>
+        <tui-badge type="red" size="small" tui-badge-class="tui-badge-class" v-if="cartNum">
+          {{cartNum}}
+        </tui-badge>
+      </view>
+    </view>
+    <view class="tui-operation-right tui-right-flex tui-col-8">
+      <tui-button class="tui-flex-1" type="danger" width="90%" height="70rpx" size="{{30}}" shape="circle"
+        bindtap="showPopup">
+        加入购物车
+      </tui-button>
+      <tui-button class="tui-flex-1" type="warning" width="90%" height="70rpx" size="{{30}}" shape="circle"
+        bindtap="nowBuy">
+        立即购买
+      </tui-button>
+    </view>
+  </view>
+  <!--底部操作栏--->
+
+  <!--底部选择层-->
+  <tui-bottom-popup show="{{popupShow}}" tui-popup-class="tui-popup" bind:close="hidePopup">
+    <view class="tui-popup-box">
+      <view class="tui-product-box tui-padding">
+        <image src="{{productInfo.product_img_list[0]}}" class="tui-popup-img"></image>
+        <view class="tui-popup-price">
+          <view class="tui-info-title">{{productInfo.product_name}}</view>
+          <view class="tui-amount tui-bold">￥{{productInfo.product_price}}</view>
+        </view>
+      </view>
+      <scroll-view scroll-y class="tui-popup-scroll">
+        <view class="tui-scrollview-box">
+          <view class="tui-number-box tui-bold tui-attr-title">
+            <view class="tui-attr-title">数量</view>
+            <tui-numberbox max="99" min="1" value="{{stockNum}}" bind:change="change"></tui-numberbox>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="tui-operation tui-operation-right tui-right-flex tui-popup-btn">
+        <tui-button type="danger" width="90%" height="70rpx" tui-button-class="tui-btn-equals" shape="circle"
+          size="{{30}}" class="tui-flex-1" bindtap="addCartProduct">
+          加入购物车
+        </tui-button>
+        <tui-button type="warning" width="90%" height="70rpx" tui-button-class="tui-btn-equals" shape="circle"
+          size="{{30}}" class="tui-flex-1" bindtap="nowBuy">
+          立即购买
+        </tui-button>
+      </view>
+
+      <tui-icon name="close-fill" color="#999" class="tui-icon-close" size="20" bindtap="hidePopup"></tui-icon>
+    </view>
+  </tui-bottom-popup>
+  <!--底部选择层-->
+
+</view>

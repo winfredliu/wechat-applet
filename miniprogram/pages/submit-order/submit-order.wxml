@@ -1,0 +1,93 @@
+<view class="container">
+  <view class="tui-box">
+
+    <tui-list-cell arrow="{{true}}" last="{{true}}" bindclick="chooseAddress">
+      <view class="tui-address">
+        <view wx:if="{{addressData}}">
+          <view class="tui-userinfo">
+            <text class="tui-name">{{addressData.address_name}}</text>
+            {{addressData.address_tel}}
+          </view>
+          <view class="tui-addr">
+            <text>{{addressData.address_province}}{{addressData.address_city}}{{addressData.address_district}}{{addressData.address_info}}</text>
+          </view>
+        </view>
+        <view class="tui-none-addr" wx:else>
+          <tui-icon name="position" size="20" color="#cccccc"></tui-icon>
+          <text class="addr-text">选择收货地址</text>
+        </view>
+      </view>
+      <view class="tui-bg-img"></view>
+    </tui-list-cell>
+
+
+    <view class="tui-top tui-goods-info">
+      <tui-list-cell hover="{{false}}" lineLeft="{{false}}">
+        <view class="tui-goods-title">
+          商品信息
+        </view>
+      </tui-list-cell>
+      <block wx:for="{{productList}}" wx:key="{{index}}">
+        <tui-list-cell hover="{{false}}" padding="0">
+          <view class="tui-goods-item">
+            <image src="{{item.product_img_list[0]}}" class="tui-goods-img"></image>
+            <view class="tui-goods-center">
+              <view class="tui-goods-name">{{item.product_name}}</view>
+            </view>
+            <view class="tui-price-right">
+              <view>￥{{item.product_price}}</view>
+              <view>x{{item.product_count}}</view>
+            </view>
+          </view>
+        </tui-list-cell>
+      </block>
+      <tui-list-cell hover="{{false}}">
+        <view class="tui-padding tui-flex">
+          <view>商品总额</view>
+          <view>￥{{allTotalAmount}}</view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell hover="{{false}}" lineLeft="{{false}}" padding="0">
+        <view class="tui-remark-box tui-padding tui-flex">
+          <view>订单备注</view>
+          <input value="{{remarks}}" bindinput="remarksInputHandle" type="text" class="tui-remark"
+            placeholder="选填: 订单备注" placeholder-class="tui-phcolor"></input>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell hover="{{false}}" last="{{true}}">
+        <view class="tui-padding tui-flex tui-total-flex">
+          <view class="tui-flex-end tui-color-red">
+            <view class="tui-black">合计： </view>
+            <view class="tui-size-26">￥</view>
+            <view class="tui-price-large">{{allTotalAmount}}</view>
+          </view>
+        </view>
+      </tui-list-cell>
+    </view>
+    <view class="tui-top">
+      <tui-list-cell last="{{true}}" arrow="{{insufficient}}">
+        <view class="tui-flex">
+          <view class="tui-balance">余额支付
+            <text class="tui-gray">(￥{{beginMoney}})</text>
+          </view>
+          <view class="tui-pr-30 tui-light-dark" wx:if="{{!insufficient}}"></view>
+          <view class="tui-pr-30 tui-light-dark" bindtap="toDepositHandle" wx:else>余额不足, 去充值</view>
+        </view>
+      </tui-list-cell>
+    </view>
+  </view>
+  <view class="tui-safe-area"></view>
+  <view class="tui-tabbar">
+    <view class="tui-flex-end tui-color-red tui-pr-20">
+      <view class="tui-black">实付金额: </view>
+      <view class="tui-size-26">￥</view>
+      <view class="tui-price-large">{{allTotalAmount}}</view>
+    </view>
+    <view class="tui-pr25">
+      <tui-button width="200rpx" height="70rpx" type="danger" shape="circle" bindclick="btnPayHandle">
+        确认支付
+      </tui-button>
+    </view>
+  </view>
+
+</view>

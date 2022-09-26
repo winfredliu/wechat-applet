@@ -1,0 +1,4 @@
+/**index.wxss**/
+@import "../../colorui/animation.wxss";
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";

@@ -1,0 +1,21 @@
+<view class="v1">
+  <!-- v2父容器  子view使用绝对布局 -->
+  <view class="v2">
+    <view class="dltext">登录</view>
+    <!-- 手机号 -->
+    <view class="phoneCs">
+      <image src="cloud://cloud1-6gyj8u4g9601f3a9.636c-cloud1-6gyj8u4g9601f3a9-1312002734/图片/账号.png" class="ph"></image>
+      <input placeholder="请输入账号" bindinput="getName" />
+    </view>
+    <!-- 密码 -->
+    <view class=passwordCs">
+      <image src="cloud://cloud1-6gyj8u4g9601f3a9.636c-cloud1-6gyj8u4g9601f3a9-1312002734/图片/账号密码.png" class="ps"></image>
+      <input placeholder="请输入密码" type="{{inputType}}" bindinput="getPassWord" />
+      <image src="{{showEye?'cloud://cloud1-6gyj8u4g9601f3a9.636c-cloud1-6gyj8u4g9601f3a9-1312002734/图片/眼睛_显示_o.png':'cloud://cloud1-6gyj8u4g9601f3a9.636c-cloud1-6gyj8u4g9601f3a9-1312002734/图片/眼睛_隐藏_o.png'}}" class="eye" bindtap="showE"></image>
+    </view>
+    <!-- 登录按钮 -->
+    <view class="denglu">
+      <button class="btn-dl" type="primary" bindtap="formSubmit">登录</button>
+    </view>
+  </view>
+</view>

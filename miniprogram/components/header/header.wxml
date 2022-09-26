@@ -1,0 +1,32 @@
+<view class="cu-custom" style="height:{{Height}}rpx">
+  <view class="cu-bar fixed " style="height: {{Height}}rpx;padding-top:{{StatusBar}}px; background:{{Color}}; top: 0; left: 0; color: #fff;">
+    <view class="action" bindtap="BackPage" wx:if="{{isBack}}">
+      <text class="icon-back"></text>
+      <slot name="backText"></slot>
+    </view>
+    <view class="action border-custom"  wx:if="{{isCustom}}" style="width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)">
+      <text class="icon-back" bindtap="BackPage"></text>
+      <text class="icon-homefill" bindtap="toHome"></text>
+    </view>
+    <view class="content" style="top:{{StatusBar}}px">
+      <slot name="content"></slot>
+    </view>
+    <slot name="right"></slot>
+  </view>
+</view>
+
+<!-- 登陆提醒 -->
+<view class="cu-modal {{loadModal.modalName.name == 'bindModal' ? 'show' : ''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">{{loadModal.modalName.title}}</view>
+			<view class="action" bindtap="hideModal">
+				<text class="icon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+      {{loadModal.modalName.content}}
+		</view>
+		<button style="margin-bottom: 20rpx;" class="cu-btn bg-green shadow text-white" bindtap="modalSuccess">{{loadModal.modalName.button}}</button>
+	</view>
+</view>

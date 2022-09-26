@@ -1,0 +1,11 @@
+<import src="../type-list-template/type-list-template.wxml" />
+<block wx:for="{{item}}" data-id="{{item._id}}" buttons="{{slideButtons}}" bindtap="slideButtonTap">
+	<!-- <mp-slideview wx:for="{{item}}" data-id="{{item._id}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap"> -->
+	<template is="listItem" data="{{item}}"></template>
+	<!-- </mp-slideview> -->
+	<view style="padding: 0px 28px;">
+		<tui-button data-id="{{item._id}}" style="width: 68%;" bindtap="slideButtonTap">删除</tui-button>
+	</view>
+</block>
+
+<view wx:if="{{item.length==0}}" style="width: 100%;font-size: 15px;text-align: center;margin-top: 100px;">暂无收藏</view>

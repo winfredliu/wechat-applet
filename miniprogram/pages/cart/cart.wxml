@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="tui-edit-goods">
+    <view>购物车共
+      <text class="tui-goods-num">{{allTotalNumber}}</text>件商品
+    </view>
+    <view>
+      <tui-button type="gray" plain="{{true}}" shape="circle" width="160rpx" height="60rpx" size="{{24}}"
+        bind:click="editGoods">{{isEdit?"完成":"编辑商品"}}</tui-button>
+    </view>
+  </view>
+
+  <checkbox-group>
+    <view class="tui-cart-cell tui-mtop" wx:for="{{cartList}}" wx:key="{{index}}">
+      <tui-swipe-action actions="{{actions}}" bind:change="handlerButton" params="{{item}}">
+        <view class="tui-goods-item" slot="content">
+          <label class="tui-checkbox">
+            <checkbox color="#fff" checked="{{item.product_check}}" bindtap="productCheckHandle"
+              data-id="{{item.productId}}">
+            </checkbox>
+          </label>
+          <image src="{{item.product_img_list[0]}}" class="tui-goods-img" />
+          <view class="tui-goods-info">
+            <view class="tui-goods-title">
+              {{item.product_name}}
+            </view>
+            <view class="tui-price-box">
+              <view class="tui-goods-price">￥{{item.product_price}}</view>
+              <tui-numberbox value="{{item.product_count}}" height="56" width="70" min="1" iconsize="30"
+                iconcolor="#666" index="{{item.productId}}" bindchange="changeNum"></tui-numberbox>
+            </view>
+          </view>
+        </view>
+      </tui-swipe-action>
+    </view>
+  </checkbox-group>
+
+  <view class="tui-tabbar">
+    <view class="tui-checkAll">
+      <label class="tui-checkbox">
+        <checkbox color="#fff" bindtap="checkAll" checked="{{isCheckAll}}"></checkbox>
+        <text class="tui-checkbox-pl">全选</text>
+      </label>
+      <view class="tui-total-price" wx:if="{{!isEdit}}">合计:
+        <text class="tui-bold">￥{{allTotalAmount}}</text>
+      </view>
+    </view>
+    <view>
+      <tui-button width="200rpx" height="70rpx" size="{{30}}" type="danger" shape="circle" wx:if="{{!isEdit}}"
+        bindclick="orderSubmit">
+        去结算
+      </tui-button>
+      <tui-button width="200rpx" height="70rpx" size="{{30}}" type="danger" shape="circle" plain="{{true}}" wx:else  bindclick="delAllCheck">
+        删除
+      </tui-button>
+    </view>
+  </view>
+</view>

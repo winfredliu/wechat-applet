@@ -1,0 +1,21 @@
+<!--pages/gongLueDetails.wxml-->
+
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('{{details.pic}}');height: 414rpx;">
+  <view class="padding-xs" bindtap="goback">
+    <text class="text-xl icon-back text-black text-bold"></text>
+  </view>
+</view>
+
+<view class="padding">
+  <text class="text-red text-bold text-lg">{{details.name}}</text>
+</view>
+
+<view class="flex solid-bottom justify-between text-bold">
+  <text class="padding-left">{{details.writer}}</text>
+  <text class="padding-right">发布于{{details.time}}</text>
+</view>
+
+<view class="padding">
+  <!-- <text>{{details.content}}</text> -->
+  <rich-text nodes="{{details.content}}"></rich-text>
+</view>

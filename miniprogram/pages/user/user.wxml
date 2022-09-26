@@ -1,0 +1,90 @@
+<view class="user">
+  <block wx:if="{{isLogin}}">
+    <view>
+      <view class="tui-header-box" style="height:{{height}}px;background:rgba(255,255,255,{{opcity}})">
+        <view class="tui-header" style="padding-top:{{top}}px;opacity:{{opcity}}">
+          我的
+        </view>
+      </view>
+      <view class="tui-mybg-box">
+        <view class="tui-my-bg"></view>
+        <view class="tui-header-center">
+          <view class="tui-info">
+            <view class="user-img">
+              <image src="{{userInfo.avatarUrl}}" class="tui-avatar"></image>
+            </view>
+            <view class="tui-nickname">
+              <text>{{userInfo.nickName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="tui-content-box">
+        <view class="tui-box tui-order-box">
+          <tui-list-cell arrow="{{true}}" padding="0" lineLeft="{{false}}" data-state="-1" bindtap="toOrderType">
+            <view class="tui-cell-header">
+              <view class="tui-cell-title">我的订单</view>
+              <view class="tui-cell-sub">查看全部订单</view>
+            </view>
+          </tui-list-cell>
+          <view class="tui-order-list">
+            <view class="tui-order-item" wx:for="{{tabs}}" bindtap="toOrderType" data-state="{{item.state}}">
+              <view class="tui-icon-box">
+                <view class="my-iconfont order-icon {{item.iconName}}"></view>
+              </view>
+              <view class="tui-order-text">{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="menu-body">
+        <tui-list-view tui-view-class="tui-view">
+
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" bindclick="toDepositHandle">
+            <tui-icon name="wealth-fill" size="24" color="#f06c7a"></tui-icon>
+            <text class="tui-cell-name">我的钱包</text>
+          </tui-list-cell>
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" bindclick="toCollectionHandle">
+            <tui-icon name="service-fill" size="24" color="#f06c7a"></tui-icon>
+            <view class="tui-cell-name">我的收藏</view>
+          </tui-list-cell>
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" bindclick="toAddressHandle">
+            <tui-icon name="position-fill" size="24" color="#f06c7a"></tui-icon>
+            <text class="tui-cell-name">地址管理</text>
+          </tui-list-cell>
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" bindclick="toFeedbackHandle">
+            <tui-icon name="message-fill" size="24" color="#f06c7a"></tui-icon>
+            <view class="tui-cell-name">意见反馈</view>
+          </tui-list-cell>
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" padding="0">
+            <button class="share-menu" open-type="share">
+              <tui-icon name="share-fill" size="24" color="#f06c7a"></tui-icon>
+              <view class="tui-cell-name">分享程序</view>
+            </button>
+          </tui-list-cell>
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" bindclick="logout">
+            <tui-icon name="about-fill" size="23" color="#f06c7a"></tui-icon>
+            <view class="tui-cell-name">退出登录</view>
+          </tui-list-cell>
+          
+          <tui-list-cell arrow="{{true}}" tui-cell-class="tui-list" bindclick="toAdminPageHandle">
+            <!-- wx:if="{{userInfo.isAdmin}}" -->
+            <tui-icon name="people-fill" size="23" color="#f06c7a"></tui-icon>
+            <view class="tui-cell-name">管理页面</view>
+          </tui-list-cell>
+
+        </tui-list-view>
+      </view>
+      <view class="u-fab">
+        <view class="fab-bdoy">
+          <button open-type="contact" session-from="weapp" class="kfBtn">
+            <tui-icon name="kefu" size="34" color="#ffffff"></tui-icon>
+          </button>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <empower buttonBgColor="#f06c7a" buttonFontColor='#ffffff' bindclick="userLogin"></empower>
+  </block>
+</view>

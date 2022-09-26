@@ -1,0 +1,79 @@
+<!-- 轮播图 -->
+<swiper class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="2000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key="index">
+    <image src="{{item.url}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+
+<!-- 宫格列表 -->
+<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}} padding-sm">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="index" wx:if="{{index<gridCol*2}}" data-idx="{{item.id}}" bindtap="goNav">
+    <view class="icon-{{item.icon}} text-{{item.color}}" data-idx="{{item.id}}"></view>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+
+<!-- 畅游昌平 -->
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="icon-title text-orange "></text> 畅游昌平
+  </view>
+  <view class="action">
+    <view class="cu-tag bg-red" bindtap="goList">更多</view>
+  </view>
+</view>
+
+<!-- 瀑布流 -->
+<view>
+  <view class="flex flex-wrap">
+    <view class="basis-df  radius bg-white" wx:for="{{jindianList}}" wx:key="index">
+      <view class="flex padding-sm align-start">
+        <image src="{{item.imgUrl}}" style="width:100%;height: 90px;" bindtap="getdetail" data-id="{{item._id}}"></image>
+      </view>
+      <view class="flex  padding-left-sm align-start text-black">{{item.name}}</view>
+      <view class="flex  padding-sm align-end text-grey text-sm">{{item.address}}</view>
+    </view>
+    <!-- <view class="basis-df  radius bg-white">
+        <view class="flex padding-sm align-start">
+           <image src="../../images/swiper/1.jpeg"  mode="widthFix" style="width:100%;"></image>
+        </view>
+        <view class="flex  padding-left-sm align-start text-black">五老峰</view>
+        <view class="flex  padding-sm align-end text-grey text-sm">江西省九江市庐山风景区</view>
+    </view>
+    <view class="basis-df  radius bg-white">
+        <view class="flex  padding-sm align-start">
+           <image src="../../images/swiper/2.jpeg"  mode="widthFix" style="width:100%;"></image>
+        </view>
+        <view class="flex  padding-left-sm align-start text-black">锦绣谷</view>
+        <view class="flex  padding-sm align-end text-grey text-sm">江西省九江市庐山风景区</view>
+    </view>
+    <view class="basis-df  radius bg-white">
+        <view class="flex  padding-sm align-start">
+           <image src="../../images/swiper/2.jpeg"  mode="widthFix" style="width:100%;"></image>
+        </view>
+        <view class="flex  padding-left-sm align-start text-black">锦绣谷</view>
+        <view class="flex  padding-sm align-end text-grey text-sm">江西省九江市庐山风景区</view>
+    </view>
+    <view class="basis-df  radius bg-white">
+        <view class="flex padding-sm align-start">
+           <image src="../../images/swiper/3.jpeg"  mode="widthFix" style="width:100%;"></image>
+        </view>
+        <view class="flex  padding-left-sm align-start text-black">观音桥</view>
+        <view class="flex  padding-sm align-end text-grey text-sm">江西省九江市庐山风景区</view>
+    </view>
+    <view class="basis-df  radius bg-white">
+        <view class="flex padding-sm align-start">
+           <image src="../../images/swiper/3.jpeg"  mode="widthFix" style="width:100%;"></image>
+        </view>
+        <view class="flex  padding-left-sm align-start text-black">观音桥</view>
+        <view class="flex  padding-sm align-end text-grey text-sm">江西省九江市庐山风景区</view>
+    </view>
+    <view class="basis-df  radius bg-white">
+        <view class="flex padding-sm align-start">
+           <image src="../../images/swiper/3.jpeg"  mode="widthFix" style="width:100%;"></image>
+        </view>
+        <view class="flex  padding-left-sm align-start text-black">观音桥</view>
+        <view class="flex  padding-sm align-end text-grey text-sm">江西省九江市庐山风景区</view>
+    </view> -->
+  </view>
+</view>

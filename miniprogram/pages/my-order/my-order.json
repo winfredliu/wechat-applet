@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tui-loadmore": "../../components/loadmore/loadmore",
+    "tui-nomore": "../../components/nomore/nomore",
+    "tui-list-cell": "../../components/list-cell/list-cell",
+    "tui-list-view": "../../components/list-view/list-view",
+    "tui-tabs": "../../components/tui-tabs/tui-tabs"
+  }
+}

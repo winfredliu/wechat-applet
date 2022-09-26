@@ -1,0 +1,57 @@
+<view class="tui-addr-box">
+  <view bindtap="wechatAddress" class="tui-addr-from-wx" wx:if="{{!isUpdate}}">
+    <tui-icon name="partake" size="18" color="#aaaaaa"></tui-icon>
+    <text class="form-wx-text">微信导入</text>
+  </view>
+  <form report-submit="true" bindsubmit="saveAddressHandle">
+    <tui-list-cell padding="0">
+      <view class="tui-line-cell">
+        <view class="tui-title">收货人</view>
+        <input value="{{addressData.address_name}}" placeholder-class="tui-phcolor" class="tui-input"
+          placeholder="请输入收货人姓名" maxlength="15" type="text" name="address_name" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell padding="0">
+      <view class="tui-line-cell">
+        <view class="tui-title">手机号码</view>
+        <input value="{{addressData.address_tel}}" placeholder-class="tui-phcolor" class="tui-input"
+          placeholder="请输入收货人手机号码" maxlength="11" type="text" name="address_tel" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell arrow="{{true}}" padding="0">
+      <view class="tui-line-cell">
+        <view class="tui-title">
+          <text class="tui-title-city-text">所在城市</text>
+        </view>
+        <picker mode="region" bindchange="addressPickerChange"
+          value="{{[addressData.address_province,addressData.address_city,addressData.address_district]}}">
+          <input value="{{addressData.address_province}}{{addressData.address_city}}{{addressData.address_district}}"
+            placeholder-class="tui-phcolor" class="tui-input" disabled placeholder="请选择城市" type="text" />
+        </picker>
+      </view>
+    </tui-list-cell>
+    <tui-list-cell padding="0">
+      <view class="tui-line-cell">
+        <view class="tui-title">收货地址</view>
+        <input value="{{addressData.address_info}}" placeholder-class="tui-phcolor" class="tui-input"
+          placeholder="请输入详细的收货地址" maxlength="50" type="text" name="address_info" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell padding="0">
+      <view class="tui-swipe-cell">
+        <view>设为默认地址</view>
+        <switch checked="{{addressData.address_default}}" color="#30CC67" class="tui-switch-small"
+          name="address_default" />
+      </view>
+    </tui-list-cell>
+
+    <view class="tui-addr-save">
+      <tui-button formType="submit" type="danger" height="88rpx">保存收货地址</tui-button>
+    </view>
+
+    <view class="tui-del" wx:if="{{false}}">
+      <tui-button type="gray" height="88rpx">删除收货地址</tui-button>
+    </view>
+
+  </form>
+</view>

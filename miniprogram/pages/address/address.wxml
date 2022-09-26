@@ -1,0 +1,25 @@
+<view class="tui-safe-area">
+  <view class="tui-address">
+    <block wx:for="{{addressList}}" wx:key="{{index}}">
+      <tui-swipe-action actions="{{actions}}" params="{{item}}" bind:change="addressClickHandle">
+        <tui-list-cell padding="6rpx" slot="content">
+          <view class="tui-address-flex" bindtap="chooseAddress" data-item="{{item}}">
+            <view class="tui-address-left">
+              <view class="tui-address-main">
+                <view class="tui-address-name tui-ellipsis">{{item.address_name}}</view>
+                <view class="tui-address-tel">{{item.address_tel}}</view>
+              </view>
+              <view class="tui-address-detail">
+                <text>{{item.address_province}}{{item.address_city}}{{item.address_district}}{{item.address_info}}</text>
+                <view class="tui-address-label" wx:if="{{item.address_default}}">默认</view>
+              </view>
+            </view>
+          </view>
+        </tui-list-cell>
+      </tui-swipe-action>
+    </block>
+  </view>
+  <view class="tui-address-new">
+    <tui-button type="danger" height="88rpx" bindclick="toAddAddress">+ 新增收货地址</tui-button>
+  </view>
+</view>

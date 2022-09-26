@@ -1,0 +1,24 @@
+<view class="swiper-list">
+  <view class="swiper-item">
+    <view class="swiper-img">
+      <tui-upload tui-upload-class="image" bindcomplete="chooseImageHandle"
+        value="{{option.product_type_icon?[option.product_type_icon]:[]}}" limit="1" catalogue="type">
+      </tui-upload>
+    </view>
+    <view class="set-body">
+      <tui-list-view>
+        <tui-list-cell padding="0rpx 30rpx">
+          <view class="set-left">
+            <text>类型名称</text>
+          </view>
+          <view class="set-right">
+            <input type="text" class="set-right-text" value="{{option.product_type_name}}" bindinput="changeNameHandle"/>
+          </view>
+        </tui-list-cell>
+      </tui-list-view>
+    </view>
+  </view>
+  <view class="footer-btn" bindtap="typeHandle">
+    {{pageType == 'update'?'修改':'添加'}}
+  </view>
+</view>

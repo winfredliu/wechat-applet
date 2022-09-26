@@ -1,0 +1,24 @@
+<view class="cu-card article" wx:for="{{jindianList}}" wx:key="index">
+  <view class="cu-item shadow" data-id="{{item._id}}" bindtap="toDetail">
+    <view class="title">
+      <view class="text-cut">{{item.name}}
+				<view class="cu-tag bg-green light sm round" wx:if="{{item.lever}}">{{item.lever}}</view>
+			</view>
+    </view>
+    <view class="content">
+      <image src="{{item.imgUrl}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">{{item.des}}</view>
+        <view>
+					<!-- <view class="cu-tag bg-green light sm round" wx:if="{{item.lever}}">{{item.lever}}</view> -->
+          <view class="cu-tag bg-red light sm round" wx:if="{{item.tag}}">{{item.tag}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{jindianList.length > 0 && end==true}}" class="text-gray text-center margin-sm">
+--------------------到底了--------------------
+</view>

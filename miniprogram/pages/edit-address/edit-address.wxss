@@ -1,0 +1,155 @@
+.tui-addr-box {
+	padding: 20rpx 0;
+}
+
+.tui-grid-icon {
+	width: 64rpx;
+	height: 64rpx;
+	margin: 0 auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.tui-line-cell {
+	width: 100%;
+	padding: 24rpx 30rpx;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+}
+
+.tui-title {
+	width: 180rpx;
+	font-size: 28rpx;
+}
+
+.tui-title-city-text {
+	width: 180rpx;
+	height: 40rpx;
+	display: block;
+	line-height: 46rpx;
+}
+
+.tui-input {
+	width: 500rpx;
+}
+
+.tui-input-city {
+	flex: 1;
+	height: 40rpx;
+	font-size: 28rpx;
+	padding-right: 30rpx;
+}
+
+.tui-phcolor {
+	color: #ccc;
+	font-size: 28rpx;
+}
+
+.tui-swipe-cell {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #fff;
+	padding: 10rpx 24rpx;
+	border-radius: 6rpx;
+	overflow: hidden;
+	font-size: 28rpx;
+}
+
+.tui-switch-small {
+	transform: scale(0.8);
+	transform-origin: 100% center;
+}
+
+.tui-switch-small .wx-switch-input {
+	margin: 0 !important;
+}
+
+.tui-addr-save {
+	padding: 24rpx;
+	margin-top: 100rpx;
+}
+
+.tui-del {
+	padding: 24rpx;
+}
+
+.tui-addr-from-wx {
+	display: flex;
+	justify-content: flex-end;
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: 20rpx;
+	padding-right: 32rpx;
+	font-size: 28rpx;
+	align-items: center;
+}
+
+.form-wx-text{
+  margin-left: 8rpx;
+}
+
+.tui-addr-add-img {
+	height: 40rpx;
+	width: 40rpx;
+	margin-right: 10rpx;
+}
+
+
+.mask-screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9;
+}
+
+.picker-box {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  background: #fff;
+}
+
+.picker-header {
+  width: 100%;
+  height: 90rpx;
+  padding: 0 46rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  background: #fff;
+}
+
+.list-item::after {
+  left: 0;
+}
+
+.btn-cancle {
+  padding: 20rpx;
+  color: #888;
+}
+
+.btn-sure {
+  padding: 20rpx;
+  color: #5677fc;
+}
+
+.picker-view {
+  width: 100%;
+  height: 260px;
+}
+
+.item {
+  line-height: 50px;
+  text-align: center;
+}

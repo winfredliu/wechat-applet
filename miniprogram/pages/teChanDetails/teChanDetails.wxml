@@ -1,0 +1,30 @@
+<!--pages/teChanDetails/teChanDetails.wxml-->
+<view>
+	<image src="{{details.pic}}" style="width:100%;"></image>
+</view>
+
+<view class="bg-white margin-top padding">
+  <text class="text-red text-xl text-bold text-price">{{details.price}}元/斤</text>
+</view>
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">订购电话</text>
+  </view>
+	<text class="text-black margin-right">{{details.telephone}}</text>
+</view>
+
+<!-- <view class="margin-top margin-bottom">
+  <view wx:for="{{details.dpics}}" wx:key="unique">
+    <image src="{{item}}" style="width: 100%;" data-imgurl="{{item}}" bindtap="previewImg">
+    </image>
+  </view>
+</view> -->
+
+<!-- <view class="padding-sm bg-red margin-top" style="position: fixed; bottom: 0;width: 100%;">
+  <view class="text-center text-white">立即购买</view>
+</view> -->
+
+
+

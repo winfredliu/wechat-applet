@@ -1,0 +1,61 @@
+<view class="container">
+
+  <view class="tui-header-box">
+    <view class="tui-header" style="width:{{width}}px;height:{{height}}px">
+      <tui-icon name="arrowleft" color="#000" tui-icon-class="tui-back" style="margin-top:{{arrowTop}}px"
+        bindtap="back"></tui-icon>
+      <view class="tui-searchbox" style="margin-top:{{inputTop}}px" bindtap="toSeachHandle">
+        <icon type="search" size='13' color='#999'></icon>
+        <text class="tui-search-text" wx:if="{{!(searchKey||product_type_name)}}">搜索商品</text>
+
+        <view class="tui-search-key" wx:if="{{searchKey}}">
+          <view class="tui-key-text">{{searchKey}}</view>
+        </view>
+
+        <view class="tui-search-key" wx:if="{{product_type_name}}">
+          <view class="tui-key-text">{{product_type_name}}</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <view class="tui-header-screen" style="top:{{height}}px">
+    <view class="tui-screen-top">
+      <view class="tui-top-item {{tabIndex==0?'tui-active tui-bold':''}}" data-index="0" bindtap="screen">
+        <view>{{selectedName}}</view>
+        <tui-icon name="{{selectH>0?'arrowup':'arrowdown'}}" size="14" color="{{tabIndex==0?'#e41f19':'#444'}}"
+          tui-icon-class="tui-ml">
+        </tui-icon>
+      </view>
+
+      <view class="tui-top-item {{tabIndex==1?'tui-active tui-bold':''}}" bindtap="screen" data-index="1">
+        销量
+      </view>
+
+      <view class="tui-top-item" bindtap="screen" data-index="2">
+        <tui-icon name="{{isList?'manage':'listview'}}" size="{{isList?22:18}}" bold="{{isList?false:true}}"
+          color="#333">
+        </tui-icon>
+      </view>
+
+      <view class="tui-dropdownlist {{selectH>0?'tui-dropdownlist-show':''}}" style="height:{{selectH}}rpx">
+        <view class="tui-dropdownlist-item {{item.selected?'tui-bold':''}}" wx:for="{{dropdownList}}" wx:key="{{index}}"
+          catchtap="dropdownItem" data-index="{{index}}">
+          <text class="tui-ml tui-middle">{{item.name}}</text>
+          <tui-icon name="check" size="16" color="#e41f19" bold="{{true}}" visible="{{item.selected}}"
+            tui-icon-class="tui-middle"></tui-icon>
+        </view>
+      </view>
+      <view class="tui-dropdownlist-mask {{selectH>0?'tui-mask-show':''}}" catchtap="hideDropdownList"></view>
+
+    </view>
+  </view>
+
+  <view class="product-list" style="margin-top:{{dropScreenH}}rpx">
+    <product-body mode="{{isList?'one':'two'}}" data="{{productList}}"></product-body>
+  </view>
+
+  <tui-loadmore visible="{{loading}}" index="3" type="red"></tui-loadmore>
+  <tui-nomore visible="{{!loadend}}"></tui-nomore>
+</view>

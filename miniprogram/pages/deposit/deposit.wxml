@@ -1,0 +1,74 @@
+<view>
+  <view class="block">
+    <view class="title">
+      我的账户
+    </view>
+    <view class="content">
+      <view class="my">
+        我的账户余额：{{beginMoney}} 元
+      </view>
+    </view>
+  </view>
+  <view class="block">
+    <view class="title">
+      充值金额
+    </view>
+    <view class="content">
+      <view class="amount">
+        <view class="list">
+          <view class="box {{item == inputAmount?'on':''}}" wx:for="{{amountList}}" wx:key="{{index}}" bindtap="select"
+            data-amount="{{item}}">
+            {{item}}元
+          </view>
+        </view>
+        <view class="num">
+          <view class="text">
+            自定义充值金额
+          </view>
+          <view class="input">
+            <input type="digit" value="{{inputAmount}}" bindinput="onKeyInput" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="block">
+    <view class="title">
+      选择支付方式
+    </view>
+    <view class="content">
+      <view class="pay-list">
+        <view class="row" bindtap="choosePay" data-type="alipay">
+          <view class="left">
+            <tui-icon name="alipay" size="36" color="#5a9ef7"></tui-icon>
+          </view>
+          <view class="center">
+            支付宝支付
+          </view>
+          <view class="right">
+            <radio color="#f06c7a" checked="{{paytype=='alipay'}}"/>
+          </view>
+        </view>
+        <view class="row" bindtap="choosePay" data-type="wxpay">
+          <view class="left">
+            <tui-icon name="wechat" size="36" color="#3bca72"></tui-icon>
+          </view>
+          <view class="center">
+            微信支付
+          </view>
+          <view class="right">
+            <radio color="#f06c7a" checked="{{paytype=='wxpay'}}"/>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pay">
+    <view class="btn" bindtap="doDeposit">立即充值</view>
+    <view class="tis">
+      点击立即充值，即代表您同意<view class="terms">
+        《条款协议》
+      </view>
+    </view>
+  </view>
+</view>

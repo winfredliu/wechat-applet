@@ -1,0 +1,43 @@
+<view class="index">
+  <view class="tui-header">
+    <view class="tui-rolling-search" bindtap="toSeachHandle">
+      <icon type="search" size='20' color='#999'></icon>
+      <swiper vertical="{{true}}" autoplay="{{true}}" circular="{{true}}" interval="8000" class="tui-swiper">
+        <swiper-item wx:for="{{hotSearchList}}" wx:key="{{index}}" class="tui-swiper-item">
+          <view class="tui-hot-item">{{item.hot_search_text}}</view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+
+  <view class="tui-header-banner">
+    <view class="tui-banner-bg">
+      <view class="tui-banner-box">
+        <swiper indicator-dots="true" autoplay="true" interval="5000" duration="150" class="tui-banner-swiper"
+          circular="{{true}}">
+          <swiper-item wx:for="{{swiperList}}" wx:key="{{index}}" data-info="{{item}}" catchtap="toSwiperDetailHandle">
+            <image src="{{item.swiper_img}}" class="tui-slide-image" mode="scaleToFill" />
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+  </view>
+
+  <view class="tui-product-category">
+    <view class="tui-category-item" wx:for="{{menuList}}" wx:key="{{index}}" data-info="{{item}}"
+      bindtap="toProductList">
+      <image src="{{item.product_type_icon}}" class="tui-category-img" mode="scaleToFill"></image>
+      <view class="tui-category-name">{{item.product_type_name}}</view>
+    </view>
+  </view>
+
+  <view class="tui-product-box">
+    <view class="tui-group-name">
+      <text>热门推荐</text>
+    </view>
+    <product-body mode="two" data="{{productList}}"></product-body>
+  </view>
+
+  <tui-loadmore visible="{{option.loading}}" index="3" type="red"></tui-loadmore>
+</view>

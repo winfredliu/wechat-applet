@@ -1,0 +1,54 @@
+<view class="container">
+  <tui-tabs tabs="{{tabs}}" isFixed="{{true}}" currentTab="{{currentTab}}" selectedColor="#E41F19"
+    sliderBgColor="#E41F19" padding="0 20rpx" bindchange="changeTabHandle"></tui-tabs>
+
+  <view class="tui-order-list">
+    <view class="tui-order-item" wx:for="{{orderList}}" wx:key="{{index}}">
+      <tui-list-cell lineLeft="{{false}}">
+        <view class="tui-goods-title">
+          <view>订单号：{{item.orderId}}</view>
+          <view class="tui-order-status">
+            {{item.orderTime}}
+          </view>
+        </view>
+      </tui-list-cell>
+      <block wx:for="{{item.productList}}" wx:for-item="productItem">
+        <tui-list-cell padding="0" bindclick="detail">
+          <view class="tui-goods-item">
+            <image src="{{productItem.product_img_list[0]}}" class="tui-goods-img"></image>
+            <view class="tui-goods-center">
+              <view class="tui-goods-name">{{productItem.product_name}}</view>
+            </view>
+            <view class="tui-price-right">
+              <view>￥{{productItem.product_price}}</view>
+              <view>x{{productItem.product_count}}</view>
+            </view>
+          </view>
+        </tui-list-cell>
+      </block>
+      <tui-list-cell hover="{{false}}" last="{{true}}">
+        <view class="tui-goods-price">
+          <view>共4件商品 合计：</view>
+          <view class="tui-size-24">￥</view>
+          <view class="tui-price-large">{{item.total}}</view>
+        </view>
+      </tui-list-cell>
+      <view class="tui-order-btn">
+        <view class="tui-btn-ml" wx:if="{{item.state===2}}">
+          <tui-button bindclick="returnGoodsHandle" custom="{{item}}" type="black" plain="{{true}}" width="148rpx"
+            height="56rpx" size="{{26}}" shape="circle">
+            退货
+          </tui-button>
+        </view>
+        <view class="tui-btn-ml">
+          <tui-button bindclick="againPayHandle" custom="{{item}}" type="danger" plain="{{true}}" width="148rpx"
+            height="56rpx" size="{{26}}" shape="circle">
+            再次购买
+          </tui-button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

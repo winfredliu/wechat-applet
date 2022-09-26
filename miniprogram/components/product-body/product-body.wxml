@@ -1,0 +1,20 @@
+<view class="tui-product-list">
+  <view class="tui-product-container">
+
+    <view class="pro-{{mode}}" wx:for="{{data}}">
+      <view class="tui-pro-item" hover-class="hover" hover-start-time="150" bindtap="detail" data-info="{{item}}">
+        <image src="{{item.product_img_list[0]}}" class="tui-pro-img" mode="aspectFill" />
+        <view class="tui-pro-content">
+          <view class="tui-pro-tit">{{item.product_name}}</view>
+          <view>
+            <view class="tui-pro-price">
+              <text class="tui-sale-price">￥{{item.product_price}}</text>
+            </view>
+            <view class="tui-pro-pay" wx:if="{{mode!=='one-small'}}">{{item.product_sales}}人付款</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

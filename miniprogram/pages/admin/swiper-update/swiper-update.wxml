@@ -1,0 +1,50 @@
+<view class="swiper-list">
+  <view class="swiper-item">
+    <view class="swiper-img">
+      <tui-upload tui-upload-class="image" bindcomplete="chooseImageHandle"
+        value="{{option.swiper_img?[option.swiper_img]:[]}}" limit="1" catalogue="swiper">
+      </tui-upload>
+    </view>
+    <view class="set-body">
+      <tui-list-view>
+        <tui-list-cell padding="0rpx 30rpx">
+          <view class="set-left">
+            <text>显示权重</text>
+          </view>
+          <view class="set-right">
+            <tui-numberbox value="{{option.swiper_weight}}" bindchange="changeWeightHandle" iconsize="30">
+            </tui-numberbox>
+          </view>
+        </tui-list-cell>
+        <tui-list-cell padding="0rpx 30rpx">
+          <view class="set-left">
+            <text>跳转类型</text>
+          </view>
+          <view class="set-right">
+            <picker bindchange="typePickerChange" value="{{typeIndex}}" range-key="value" range="{{typePickerList}}">
+              <view class="set-right-text">
+                {{typePickerList[typeIndex].value}}
+              </view>
+            </picker>
+          </view>
+        </tui-list-cell>
+        <tui-list-cell padding="0rpx 30rpx">
+          <view class="set-left">
+            <text>跳转目标</text>
+          </view>
+          <view class="set-right">
+            <picker bindchange="optionPickerChange" value="{{typeIndex}}" range-key="value"
+              range="{{typePickerList[typeIndex].list}}">
+              <view class="set-right-text">
+                {{typePickerList[typeIndex].list[optionIndex].value}}
+              </view>
+            </picker>
+          </view>
+        </tui-list-cell>
+      </tui-list-view>
+    </view>
+  </view>
+  <view class="footer-btn" bindtap="swipwerHandle">
+    {{pageType == 'update'?'修改':'添加'}}
+  </view>
+</view>

@@ -1,0 +1,115 @@
+<view class="container">
+  <view class="tui-box">
+
+    <tui-list-cell last="{{true}}">
+      <view class="tui-address">
+        <view class="tui-userinfo">
+          <text class="tui-name">{{orderData.addressData.address_name}}</text>
+          {{orderData.addressData.address_tel}}
+        </view>
+        <view class="tui-addr">
+          <text>{{orderData.addressData.address_province}}{{orderData.addressData.address_city}}{{orderData.addressData.address_district}}{{orderData.addressData.address_info}}</text>
+        </view>
+      </view>
+      <view class="tui-bg-img"></view>
+    </tui-list-cell>
+
+
+    <view class="tui-top tui-goods-info">
+      <tui-list-cell hover="{{false}}" lineLeft="{{false}}">
+        <view class="tui-goods-title">
+          商品信息
+        </view>
+      </tui-list-cell>
+      <block wx:for="{{orderData.productList}}" wx:key="{{index}}">
+        <tui-list-cell hover="{{false}}" padding="0">
+          <view class="tui-goods-item">
+            <image src="{{item.product_img_list[0]}}" class="tui-goods-img"></image>
+            <view class="tui-goods-center">
+              <view class="tui-goods-name">{{item.product_name}}</view>
+            </view>
+            <view class="tui-price-right">
+              <view>￥{{item.product_price}}</view>
+              <view>x{{item.product_count}}</view>
+            </view>
+          </view>
+        </tui-list-cell>
+      </block>
+      <tui-list-cell hover="{{false}}">
+        <view class="tui-padding tui-flex">
+          <view>商品总额</view>
+          <view>￥{{orderData.total}}</view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell hover="{{false}}" lineLeft="{{false}}" padding="0">
+        <view class="tui-remark-box tui-padding tui-flex">
+          <view>订单备注</view>
+          <input value="{{orderData.remarks}}" type="text" class="tui-remark" placeholder-class="tui-phcolor"
+            disabled></input>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell hover="{{false}}" last="{{true}}">
+        <view class="tui-padding tui-flex tui-total-flex">
+          <view class="tui-flex-end tui-color-red">
+            <view class="tui-black">合计： </view>
+            <view class="tui-size-26">￥</view>
+            <view class="tui-price-large">{{orderData.total}}</view>
+          </view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell hover="{{false}}">
+        <view class="tui-padding tui-flex">
+          <view>订单状态</view>
+          <view class="tui-color-red">{{orderWxs.getOrderStateText(orderData.state)}}</view>
+        </view>
+      </tui-list-cell>
+    </view>
+  </view>
+  <view class="tui-safe-area"></view>
+  <view class="tui-tabbar">
+    <block wx:if="{{orderData.state == '1'}}">
+      <tui-button width="200rpx" height="70rpx" type="danger" shape="circle" bindtap="deliverGoodsHandle">
+        发货
+      </tui-button>
+    </block>
+    <block wx:elif="{{orderData.state == '3'}}">
+      <tui-button width="200rpx" height="70rpx" type="danger" shape="circle" bindtap="returnGoodsHandle">
+        退款
+      </tui-button>
+    </block>
+  </view>
+</view>
+
+<wxs module="orderWxs">
+  function getOrderStateText(state) {
+    var text=''
+    var orderState = [{
+      state: 1,
+      name: "待发货"
+      }, {
+      state: 2,
+      name: "待收货"
+      }, {
+      state: 3,
+      name: "待退货"
+      }, {
+      state: 4,
+      name: "已退货"
+      }, {
+      state: 5,
+      name: "已收货"
+      }
+    ]
+    for (var i = 0; i < orderState.length; i++) {
+      var orderInfo = orderState[i];
+      if(orderInfo.state==state){
+        text=orderInfo.name
+        break;
+      }
+    }
+    return text
+  }
+  module.exports ={
+    getOrderStateText:getOrderStateText
+  }
+</wxs>

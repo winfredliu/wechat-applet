@@ -1,0 +1,6 @@
+<view class="product-list">
+  <product-body mode="one" data="{{productList}}"></product-body>
+</view>
+
+<tui-loadmore visible="{{option.loading}}" index="3" type="red"></tui-loadmore>
+<tui-nomore visible="{{option.loadend}}"></tui-nomore>

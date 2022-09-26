@@ -1,0 +1,66 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <tui-list-cell>
+      <view class="tui-line-cell">
+        <view class="tui-title">商品名称</view>
+        <input placeholder-class="phcolor" value="{{initData.product_name}}" class="tui-input" name="product_name"
+          disabled="{{pageType=='show'}}" placeholder="请输入商品名称" type="text" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell padding="0px 15px">
+      <view class="tui-line-cell">
+        <view class="tui-title">商品分类</view>
+        <picker class="tui-input tui-picker" bindchange="classifyPickerChange" value="{{classifyIndex}}"
+          range-key="product_type_name" range="{{classifyList}}" disabled="{{pageType=='show'}}">
+          <input class="set-right-text" value="{{classifyList[classifyIndex].product_type_name}}" disabled
+            name="product_type" />
+        </picker>
+      </view>
+    </tui-list-cell>
+    <tui-list-cell>
+      <view class="tui-line-cell">
+        <view class="tui-title">商品价格</view>
+        <input placeholder-class="phcolor" value="{{initData.product_price}}" class="tui-input" name="product_price"
+          disabled="{{pageType=='show'}}" placeholder="请输入商品价格" type="digit" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell>
+      <view class="tui-line-cell">
+        <view class="tui-title">商品销量</view>
+        <input placeholder-class="phcolor" value="{{initData.product_price||0}}" class="tui-input" name="product_sales"
+          disabled="{{pageType=='show'}}" placeholder="请输入商品初始销量" type="number" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell>
+      <view class="tui-line-cell">
+        <view class="tui-title">商品库存</view>
+        <input placeholder-class="phcolor" value="{{initData.product_stock}}" class="tui-input" name="product_stock"
+          disabled="{{pageType=='show'}}" placeholder="请输入商品初始库存" type="number" />
+      </view>
+    </tui-list-cell>
+    <tui-list-cell hover="{{false}}" last="{{true}}">
+      <view class="img-body">
+        <view class="img-header">
+          <view class="img-title">商品图片</view>
+          <view class="img-num">{{initData.product_img_list.length}}/9</view>
+        </view>
+        <tui-upload forbidAdd="{{pageType=='show'}}" forbidDel="{{pageType=='show'}}"
+          value="{{initData.product_img_list||[]}}" tui-upload-class="image-item" bindcomplete="chooseImageHandle"
+          catalogue="product"></tui-upload>
+      </view>
+    </tui-list-cell>
+
+
+    <block wx:if="{{pageType!='show'}}">
+      <button class="footer-btn" formType="submit">
+        {{pageType == 'update'?'修改':'添加'}}
+      </button>
+    </block>
+    <block wx:else>
+      <button class="footer-btn" bindtap="pageBack">
+        确认
+      </button>
+    </block>
+
+  </form>
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tui-numberbox": "../../../components/numberbox/numberbox",
+    "tui-list-cell":"../../../components/list-cell/list-cell",
+    "tui-list-view": "../../../components/list-view/list-view",
+    "tui-fab":"../../../components/tui-fab/tui-fab"
+  }
+}

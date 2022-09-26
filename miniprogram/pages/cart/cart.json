@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tui-numberbox":"../../components/numberbox/numberbox",
+    "tui-swipe-action":"../../components/swipe-action/swipe-action"
+  },
+  "navigationBarTitleText": "购物车"
+}

@@ -1,0 +1,31 @@
+<!--pages/guideList/guideList.wxml-->
+<view class="cu-card article" wx:for="{{guideList}}" wx:key="unique">
+  <view class="cu-item shadow">
+    <view class="title flex justify-between">
+      <view class="text-cut">
+          {{item.name}} {{item.age}}岁  
+          <text class="cu-tag sm round bg-grey light">{{item.tag[0]}}</text>
+          <text class="cu-tag sm round bg-grey light">{{item.tag[1]}}</text>
+      </view>
+      <view class="text-cut text-price text-red text-xl">{{item.price}}</view>
+    </view>
+    <view class="content">
+      <image src="{{item.avatar}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-sm">{{item.desc}}</view>
+        <view class="flex justify-between">
+           <view class="margin-top-sm">
+              <view class="text-blue text-sm round">{{item.speciality}}</view>
+           </view>
+           <view class="margin-left">
+            <button class="cu-btn round bg-orange" style="width:180rpx;" bindtap="showModal">立即预约</button>
+           </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{guideList.length > 0 && end==true}}" class="text-gray text-center margin-sm">
+--------------------到底了--------------------
+</view>

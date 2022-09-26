@@ -1,0 +1,48 @@
+<view class="swiper-list">
+  <view class="swiper-item" wx:for="{{swiperList}}">
+    <view class="swiper-img">
+      <image src="{{item.swiper_img}}" mode="scaleToFill"></image>
+    </view>
+    <view class="set-body">
+      <tui-list-view>
+        <tui-list-cell>
+          <view class="set-left">
+            <text>显示权重</text>
+          </view>
+          <view class="set-right">
+            <text>{{item.swiper_weight}}</text>
+          </view>
+        </tui-list-cell>
+        <tui-list-cell>
+          <view class="set-left">
+            <text>跳转类型</text>
+          </view>
+          <view class="set-right">
+            <text>{{item.swiper_page_type_text}}</text>
+          </view>
+        </tui-list-cell>
+        <tui-list-cell>
+          <view class="set-left">
+            <text>跳转目标</text>
+          </view>
+          <view class="set-right">
+            <text class="set-right-text">{{item.swiper_option_text}}</text>
+          </view>
+        </tui-list-cell>
+      </tui-list-view>
+    </view>
+    <view class="set-bdoy">
+      <view class="set-item set-left" data-info="{{item}}" data-index="{{index}}"
+      bindtap="toSwiperHandle">
+        修改
+      </view>
+      <view class="set-item set-right" data-info="{{item}}" data-index="{{index}}" bindtap="delSWiperHandle">
+        删除
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<tui-fab bgColor="#f06c7a" width="90" height="90" right="60" bottom="80" bindclick="addSwiperHandle">
+</tui-fab>

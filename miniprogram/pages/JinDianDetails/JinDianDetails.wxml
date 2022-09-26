@@ -1,0 +1,73 @@
+<view>
+	<image src="{{details.imgUrl}}" style="width:100%;"></image>
+</view>
+
+<!-- <view class="cu-bar bg-white margin-top">
+    <view class="action border-title">
+      <text class="text-xl text-bold">景区电话</text>
+      <text class="bg-grey" style="width:2rem"></text>
+    </view>
+</view> -->
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">景区电话</text>
+  </view>
+	<text class="text-black margin-right">{{details.telephone}}</text>
+</view>
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">开放时间</text>
+  </view>
+	<text class="text-black margin-right">{{details.opentime}}</text>
+</view>
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">景区地址</text>
+  </view>
+	<view  style="width: 50%;">
+		<text class="text-black">{{details.address}}</text>
+	</view>
+</view>
+
+  <!-- <view class="flex  p-xs margin-bottom-sm mb-sm">
+		<view class="flex-sub bg-grey padding-sm margin-xs radius">2</view>
+    <view class="flex-sub bg-grey padding-sm margin-xs radius">1</view>  
+  </view> -->
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">景区介绍</text>
+  </view>
+  <view  style="width: 50%;">
+		<text class="text-black">{{details.des}}</text>
+	</view>
+</view>
+
+<view class="cu-bar bg-white margin-top" bindtap="getticket">
+  <view class="action">
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">门票信息</text>
+  </view>
+  <view  style="width: 50%;">
+		<text class="text-black" >点击购买门票</text>
+	</view>
+</view>
+
+
+
+<view class="cu-bar bg-white margin-top" bindtap="getgonglue">
+  <view class="action"  >
+    <text class="icon-titles text-green"></text>
+    <text class="text-xl text-bold">攻略</text>
+  </view>
+  <view  style="width: 50%;">
+		<text class="text-black" >点击查看攻略</text>
+	</view>
+</view>

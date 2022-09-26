@@ -1,0 +1,18 @@
+<text class="text-ti" style="width:30px;">作者</text>
+<view class="view-contain-ti">
+    <input  class="input1" bindinput="getwriter"></input >
+</view>
+<text class="text-ti" style="width: 50px;">景区名</text>
+<view class="view-contain-ti">
+    <input class="input1" bindinput="getcname"></input>
+</view>
+<text class="text-ti" style="width: 50px;">攻略名</text>
+<view class="view-contain-ti">
+    <input class="input1" bindinput="getname"></input>
+</view>
+<text class="text-ti" style="width: 70px;">攻略内容</text>
+<view class="view-contain-ti" style="height:500rpx;">
+    <textarea  class="input1" style="height: 500rpx; margin-top: 20rpx; font-size: 16px; overflow-y:auto ;" bindinput="getcontent"></textarea >
+</view>
+<button class="gongluebutton1" style="width: 300rpx;" bindtap="changeBigImg">添加图片</button>
+<button class="gongluebutton" style="width: 300rpx;" bindtap="addgonglue">点击添加</button>

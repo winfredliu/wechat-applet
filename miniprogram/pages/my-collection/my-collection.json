@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "product-body": "../../components/product-body/product-body",
+    "tui-loadmore": "../../components/loadmore/loadmore",
+    "tui-nomore": "../../components/nomore/nomore"
+  }
+}

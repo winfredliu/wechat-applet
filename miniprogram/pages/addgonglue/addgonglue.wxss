@@ -1,0 +1,37 @@
+/* pages/addgonglue/addgonglue.wxss */
+@import "../../colorui/animation.wxss";
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.view-contain-ti {
+  display: flex;
+  height: 40px;
+  margin: 20px;
+  border: 3rpx solid #faca82;
+  border-radius: 10rpx;
+}
+
+.text-ti {
+  font-size: 12px;
+  background: #f1f1f1;
+  margin: -10px 0 0 10px;
+  padding: 0 0px;
+  color: rgb(144, 147, 167);
+}
+
+.input1 {
+  margin:  auto 10px;
+  width: 100%;
+  font-size: 16px
+}
+.gongluebutton{
+  margin: 15px;
+  float: right;
+  
+  background: linear-gradient(to right, #ead6ee, #a0f1ea); 
+}
+.gongluebutton1{
+  margin: 15px;
+  float: left;
+  background: linear-gradient(to right, #ead6ee, #a0f1ea); 
+  /* position: fixed; */
+}

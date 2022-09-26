@@ -1,0 +1,10 @@
+<view>
+  <view class="icon">
+    <tui-icon name="circle-fill" size="100" color="#f06c7a"></tui-icon>
+  </view>
+  <view class="tis">订单支付成功</view>
+  <view class="pay-amount">{{'支付金额:'+amount+'元'}}</view>
+  <view class="back">
+    <view class="btn" bindtap="back">返回上一页</view>
+  </view>
+</view>

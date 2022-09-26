@@ -1,0 +1,107 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/cart/cart",
+    "pages/classify/classify",
+    "pages/product-detail/product-detail",
+    "pages/search/search",
+    "pages/product-list/product-list",
+    "pages/submit-order/submit-order",
+    "pages/address/address",
+    "pages/edit-address/edit-address",
+    "pages/deposit/deposit",
+    "pages/success/success",
+    "pages/feedback/feedback",
+    "pages/my-collection/my-collection",
+    "pages/my-order/my-order",
+
+    "pages/addgonglue/addgonglue",
+
+    "pages/admin/login/login",
+    "pages/admin/menu/menu",
+    "pages/admin/user-list/user-list",
+    "pages/admin/swiper-list/swiper-list",
+    "pages/admin/swiper-update/swiper-update",
+    "pages/admin/product-list/product-list",
+    "pages/admin/product-update/product-update",
+    "pages/admin/type-list/type-list",
+    "pages/admin/type-update/type-update",
+    "pages/admin/order-list/order-list",
+    "pages/admin/order-update/order-update",
+    "pages/admin/feedback-list/feedback-list",
+    "pages/JinDianDetails/JinDianDetails",
+    "pages/homestay/homestay",
+    "pages/JinDianList/JinDianlist",
+    "pages/gongLueList/gongLueList",
+    "pages/techan/techan",
+    "pages/gongLueDetails/gongLueDetails",
+    "pages/guideList/guideList",
+    "pages/teChanDetails/teChanDetails",
+    "pages/ticket/ticket",
+    "pages/dishes/dishes",
+    "pages/FoodCollect/FoodCollect",
+    "pages/comment/comment",
+    "pages/comment-list/comment-list",
+    "pages/detail-template/detail-template",
+    "pages/foodlist/foodlist",
+    "pages/foot/foot",
+    "pages/foodhot/foodhot",
+    "pages/list-template/list-template",
+    "pages/my-foodorder/my-foodorder",
+    "pages/new/new",
+    "pages/FoodOrder/FoodOrder",
+    "pages/foodself/foodself",
+    "pages/type-list-template/type-list-template",
+    "pages/snack/snack"
+  ],
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "header": "/components/header/header",
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag",
+    "tui-button": "/components/button/button"
+  },
+  "tabBar": {
+    "selectedColor": "#FF4040",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home_cur.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tabbar/car.png",
+        "selectedIconPath": "images/tabbar/car_cur.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/tabbar/me.png",
+        "selectedIconPath": "images/tabbar/me_cur.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+  "subpackages": [
+    {
+      "root": "package_panorama",
+      "pages": [
+        "pages/photo/photo"
+      ]
+    }
+  ]
+}
